@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+	lang="en" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="Patient Details" widgetVar="patientDialog"
+		resizable="false" id="patientDialog" showEffect="fade"
+		hideEffect="explode" modal="true">
+
+		<h:panelGrid id="display" columns="2" cellpadding="4"
+			style="margin:0 auto;">
+
+			<h:outputText value="First Name:" />
+			<p:inplace>
+				<p:inputText value="#{medicalRecordsBean.selectedPatient.firstName}" />
+			</p:inplace>
+			<h:outputText value="Last Name:" />
+			<p:inplace>
+				<p:inputText value="#{medicalRecordsBean.selectedPatient.lastName}" />
+			</p:inplace>
+			<h:outputText value="Document Number:" />
+			<p:inplace>
+				<p:inputText
+					value="#{medicalRecordsBean.selectedPatient.documentNumber}" />
+			</p:inplace>
+			<h:outputText value="Age:" />
+			<p:inplace>
+				<p:inputText value="#{medicalRecordsBean.selectedPatient.age}" />
+			</p:inplace>
+			<h:outputText value="Medical Entity:" />
+			<p:inplace>
+				<p:inputText
+					value="#{medicalRecordsBean.selectedPatient.medicalEntity}" />
+			</p:inplace>
+			<p:commandButton id="saveCurrentPatient"
+				update="form:panel:patientsTable" value="Update details"
+				actionListener="#{medicalRecordsBean.updateSelectedPatient}"
+				onclick="PF('patientDialog').hide()">
+			</p:commandButton>
+			<ui:include src="/registrylist.xhtml" />
+			
+		</h:panelGrid>
+
+	</p:dialog>
+</ui:composition>

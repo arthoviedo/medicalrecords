@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+	lang="en" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<p:tab id="tabListPatients" title="List of Patients">
+				<p:dataTable id="patientsTable" var="patient" value="#{medicalRecordsBean.patients}"
+					paginator="true" rows="50"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="50,100,200">
+
+					<p:column>
+						<h:outputText value="#{patient.firstName}" />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{patient.lastName}" />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{patient.documentNumber}" />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{patient.documentType}" />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{patient.age}" />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{patient.medicalEntity}" />
+					</p:column>
+					<p:column headerText="Edit Patient">
+						<p:commandButton id="selectButton" update=":form:display"
+							oncomplete="PF('patientDialog').show()" icon="ui-icon-search"
+							title="View/Edit Details">
+							<f:setPropertyActionListener value="#{patient}"
+								target="#{medicalRecordsBean.selectedPatient}" />
+						</p:commandButton>
+
+					</p:column>
+				</p:dataTable>
+			</p:tab>
+</ui:composition>
