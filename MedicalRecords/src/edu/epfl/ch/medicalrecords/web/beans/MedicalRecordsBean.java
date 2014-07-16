@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.Entry;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -22,6 +23,7 @@ import edu.epfl.ch.medicalrecords.model.Doctor;
 import edu.epfl.ch.medicalrecords.model.MedicalRecordsManager;
 import edu.epfl.ch.medicalrecords.model.Patient;
 import edu.epfl.ch.medicalrecords.model.Registry;
+import edu.epfl.ch.medicalrecords.utils.Console;
 
 @ManagedBean(name = "medicalRecordsBean")
 @SessionScoped
@@ -34,17 +36,22 @@ public class MedicalRecordsBean implements Serializable {
 	Doctor doctor;
 	List<Patient> patients = new ArrayList<>();
 	List<Registry> selectedPatientsRegistries = new ArrayList<>();
-
+	
 	private Patient selectedPatient;
-
+	
+	private String firstNameNewPatient;
+	private String lastNameNewPatient;
+	private String documentNumberNewPatient;
+	private String ageNewPatient;
+	private String medicalEntityNewPatient;
+    
 	public MedicalRecordsBean() {
-		System.out.println("Initializing bean");
+		Console.print("Initializing bean");
 
 		// LoginFilter should already ensure that user is logged in
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
 		username = user.getNickname();
-
 		manager = MedicalRecordsManager.getInstance();
 		ServletContext servletContext = (ServletContext) FacesContext
 				.getCurrentInstance().getExternalContext().getContext();
@@ -75,6 +82,15 @@ public class MedicalRecordsBean implements Serializable {
 
 	public void updateSelectedPatient(ActionEvent event) {
 		manager.savePatient(selectedPatient);
+	}
+	
+	public void createNewPatient(ActionEvent event) {
+	    Console.print(lastNameNewPatient);
+	    Console.print(firstNameNewPatient);
+	    Console.print(documentNumberNewPatient);
+	    Console.print(medicalEntityNewPatient);
+        Console.print(ageNewPatient);
+	    
 	}
 
 	public boolean getLogin() {
@@ -152,5 +168,45 @@ public class MedicalRecordsBean implements Serializable {
 			List<Registry> selectedPatientsRegistries) {
 		this.selectedPatientsRegistries = selectedPatientsRegistries;
 	}
+
+   public String getDocumentNumberNewPatient() {
+        return documentNumberNewPatient;
+    }
+
+    public String getFirstNameNewPatient() {
+    return firstNameNewPatient;
+}
+
+public void setFirstNameNewPatient(String firstNameNewPatient) {
+    this.firstNameNewPatient = firstNameNewPatient;
+}
+
+public String getLastNameNewPatient() {
+    return lastNameNewPatient;
+}
+
+public void setLastNameNewPatient(String lastNameNewPatient) {
+    this.lastNameNewPatient = lastNameNewPatient;
+}
+
+    public void setDocumentNumberNewPatient(String documentNumberNewPatient) {
+        this.documentNumberNewPatient = documentNumberNewPatient;
+    }
+
+    public String getAgeNewPatient() {
+        return ageNewPatient;
+    }
+
+    public void setAgeNewPatient(String ageNewPatient) {
+        this.ageNewPatient = ageNewPatient;
+    }
+
+    public String getMedicalEntityNewPatient() {
+        return medicalEntityNewPatient;
+    }
+
+    public void setMedicalEntityNewPatient(String medicalEntityNewPatient) {
+        this.medicalEntityNewPatient = medicalEntityNewPatient;
+    }
 
 }

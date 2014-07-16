@@ -17,13 +17,13 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
       <param-value>client</param-value>
    </context-param>
    <!-- Set the default suffix for JSF pages to .xhtml -->
-   <context-param>
+   	<context-param>
       <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
       <param-value>.xhtml</param-value>
-   </context-param>
+   	</context-param>
    <!-- Disable use of threading for single-threaded environments such as
         the Google AppEngine. -->
-   <context-param>
+   	<context-param>
       <param-name>com.sun.faces.enableThreading</param-name>
       <param-value>false</param-value>
       <description>
@@ -35,7 +35,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
          Note that when this option is disabled, the ResourceHandler will not 
          pick up new versions of resources when ProjectStage is development.
       </description>
-   </context-param>
+   	</context-param>
+   	<context-param>  
+    	<param-name>primefaces.THEME</param-name>  
+    	<param-value>bootstrap</param-value>  
+	</context-param>
    <!-- ***** Specify Java Unified Expression Language 3.0 Over Default -->
    <!-- 
    <context-param>     

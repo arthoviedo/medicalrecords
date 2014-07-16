@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/appengine-java-sdk-1.8.8"/>
-	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/javax.el-3.0.0.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/javax.faces-2.2.4.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/objectify-4.0rc2.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/guava-15.0.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/primefaces-4.0.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/all-themes-1.0.10.jar"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/appengine-java-sdk-1.9.6"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

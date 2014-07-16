@@ -25,11 +25,14 @@
 			</p>
 		</f:view>
 		<p:accordionPanel id="panel">
-			<ui:include src="/patientslist.xhtml" />
+			<ui:include src="/newpatient_tab.xhtml" />
+			<ui:include src="/patientslist_tab.xhtml" />
 			<p:tab title="Patient Details"></p:tab>
-			<p:tab title="New Patient"></p:tab>
+			<!-->p:tab title="New Patient"></p:tab-->
 		</p:accordionPanel>
-		<ui:include src="/patient.xhtml" />
+		<ui:include src="/patientdetails_dialog.xhtml" />
+		<ui:include src="/newpatient_dialog.xhtml" />
+		
 	</h:form>
 </h:body>
 </html>
